@@ -13,18 +13,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1 Checkout repository
       - uses: actions/checkout@v4
 
-      # 2 Install Rust toolchain
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
 
-      # 3 Add wasm target
       - name: Add wasm target
         run: rustup target add wasm32-unknown-unknown
 
-      # 4 Cache Cargo dependencies and target folder
       - name: Cache Cargo
         uses: actions/cache@v4
         with:
@@ -34,14 +30,12 @@ jobs:
             target
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
-      # 5 Cache Trunk binary
       - name: Cache Trunk
         uses: actions/cache@v4
         with:
           path: ~/.cargo/bin/trunk
           key: ${{ runner.os }}-trunk
 
-      # 6 Install Trunk if missing
       - name: Install Trunk
         run: |
           if ! command -v trunk &> /dev/null; then
@@ -50,17 +44,14 @@ jobs:
         env:
           CARGO_HOME: $HOME/.cargo
 
-      # 7 Clean dist folder before build
       - name: Clean dist
         run: rm -rf dist/*
 
-      # 8 Build project with Trunk for GitHub Pages
       - name: Build Survivor
         run: trunk build --release --public-url /survivor/
         env:
-          CARGO_INCREMENTAL: 0  # full rebuild
+          CARGO_INCREMENTAL: 0
 
-      # 9 Deploy to gh-pages (force full replacement)
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
