@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1 Checkout the repo
+      # 1 Checkout the repository
       - uses: actions/checkout@v4
 
       # 2 Install Rust toolchain
@@ -25,30 +25,32 @@ jobs:
       - name: Add wasm target
         run: rustup target add wasm32-unknown-unknown
 
-      # 4 Cache Cargo
+      # 4 Cache Cargo registry, git, and target folder
       - name: Cache Cargo
         uses: actions/cache@v4
         with:
           path: |
-            ~/.cargo/bin
             ~/.cargo/registry
             ~/.cargo/git
             target
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
-      # 5 Install trunk only if missing
-      - name: Install trunk
-        run: |
-          if ! command -v trunk &> /dev/null
-          then
-            cargo install trunk --locked
-          fi
+      # 5 Cache Trunk binary
+      - name: Cache Trunk
+        uses: actions/cache@v4
+        with:
+          path: ~/.cargo/bin/trunk
+          key: ${{ runner.os }}-trunk
 
-      # 6 Build the project with public URL
+      # 6 Install trunk, skip rebuild if cached
+      - name: Install Trunk
+        run: cargo install trunk --locked
+
+      # 7 Build project with public URL for GitHub Pages
       - name: Build project
         run: trunk build --release --public-url /survivor/
 
-      # 7 Deploy to GitHub Pages
+      # 8 Deploy to GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
