@@ -63,7 +63,7 @@ pub fn render(ui: &mut Ui, expenses: &mut Vec<Expense>) {
 
                     ExpenseType::Unpredictable(month) => {
                         egui::ComboBox::from_id_salt(format!("exp_type{}", index))
-                            .selected_text("Fix")
+                            .selected_text("Unpredictable")
                             .show_ui(ui, |ui| {
                                 if ui.selectable_label(false, "Fix").clicked() {
                                     new_frequency = Some(ExpenseType::Fix);
