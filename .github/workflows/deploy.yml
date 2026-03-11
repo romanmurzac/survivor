@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1 Checkout the repository
+      # 1 Checkout repository
       - uses: actions/checkout@v4
 
       # 2 Install Rust toolchain
@@ -41,8 +41,8 @@ jobs:
           path: ~/.cargo/bin/trunk
           key: ${{ runner.os }}-trunk
 
-      # 6 Install Trunk only if missing
-      - name: Install Trunk if missing
+      # 6 Install Trunk if missing
+      - name: Install Trunk
         run: |
           if ! command -v trunk &> /dev/null; then
             cargo install trunk --locked
@@ -54,15 +54,17 @@ jobs:
       - name: Clean dist
         run: rm -rf dist/*
 
-      # 8 Build project with Trunk (production, public URL for GitHub Pages)
+      # 8 Build project with Trunk for GitHub Pages
       - name: Build Survivor
         run: trunk build --release --public-url /survivor/
         env:
-          CARGO_INCREMENTAL: 0  # force full rebuild to avoid stale files
+          CARGO_INCREMENTAL: 0  # full rebuild
 
-      # 9 Deploy to GitHub Pages
-      - name: Deploy
+      # 9 Deploy to gh-pages (force full replacement)
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          keep_files: false
+          force_orphan: true
