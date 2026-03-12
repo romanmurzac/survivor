@@ -1,7 +1,18 @@
+//! This module renders the user interface for defining simulation `Scenario` rules.
+//!
+//! A scenario rule is a triple of (Time, Target, Action). This editor allows
+//! users to manage these rules, enabling them to test complex economic changes
+//! like salary raises, expense cuts, or unexpected financial losses.
+
 use egui::Ui;
 
 use crate::domain::scenario::{Action, Rule, Scenario, Target};
 
+/// Renders the interactive editor for managing `Scenario` rules.
+///
+/// # Arguments
+/// * `ui` - The `egui::Ui` context.
+/// * `scenario` - A mutable reference to the `Scenario` containing the list of rules.
 pub fn render(ui: &mut Ui, scenario: &mut Scenario) {
     ui.heading("Scenarios");
 
@@ -9,6 +20,7 @@ pub fn render(ui: &mut Ui, scenario: &mut Scenario) {
 
     for (index, rule) in scenario.rules.iter_mut().enumerate() {
         ui.group(|ui| {
+            // Trigger configuration: when the rule starts.
             ui.horizontal(|ui| {
                 ui.label("Start Month");
                 ui.add(egui::DragValue::new(&mut rule.start_month).range(1..=600));
@@ -17,6 +29,7 @@ pub fn render(ui: &mut Ui, scenario: &mut Scenario) {
                 }
             });
 
+            // Target selector: what financial category is being modified.
             ui.horizontal(|ui| {
                 ui.label("Target");
 
@@ -49,6 +62,7 @@ pub fn render(ui: &mut Ui, scenario: &mut Scenario) {
                     });
             });
 
+            // Action modifier: how the target is transformed.
             ui.horizontal(|ui| {
                 ui.label("Action");
 
