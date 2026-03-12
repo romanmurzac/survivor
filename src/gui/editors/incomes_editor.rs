@@ -1,7 +1,18 @@
+//! This module renders the user interface for managing income sources.
+//!
+//! It allows users to manipulate `Income` data in real-time, including
+//! switching between `Recurrent` and `OneTime` frequencies and classifying
+//! streams as `Active` or `Passive`.
+
 use egui::Ui;
 
 use crate::domain::income::{Income, IncomeCategory, IncomeType};
 
+/// Renders the interactive editor for a list of incomes.
+///
+/// # Arguments
+/// * `ui` - The `egui::Ui` context.
+/// * `incomes` - A mutable reference to the `Vec<Income>` to be modified.
 pub fn render(ui: &mut Ui, incomes: &mut Vec<Income>) {
     ui.heading("Incomes");
 
@@ -9,6 +20,7 @@ pub fn render(ui: &mut Ui, incomes: &mut Vec<Income>) {
 
     for (index, income) in incomes.iter_mut().enumerate() {
         ui.group(|ui| {
+            // Header: Name and deletion controls.
             ui.horizontal(|ui| {
                 ui.label("Name");
                 ui.text_edit_singleline(&mut income.name);
@@ -18,11 +30,13 @@ pub fn render(ui: &mut Ui, incomes: &mut Vec<Income>) {
                 }
             });
 
+            // Numeric value input.
             ui.horizontal(|ui| {
                 ui.label("Amount");
                 ui.add(egui::DragValue::new(&mut income.amount));
             });
 
+            // Frequency Configuration.
             ui.horizontal(|ui| {
                 ui.label("Type");
 
@@ -62,6 +76,7 @@ pub fn render(ui: &mut Ui, incomes: &mut Vec<Income>) {
                 }
             });
 
+            // Category Selection.
             ui.horizontal(|ui| {
                 ui.label("Category");
 
