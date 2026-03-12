@@ -1,3 +1,8 @@
+//! The main entry point for the "Survivor" financial simulator.
+//!
+//! This module initializes the application state and selects the appropriate
+//! runtime based on the target architecture (Native Desktop or Web/WASM).
+
 mod domain;
 mod engine;
 mod gui;
@@ -7,6 +12,7 @@ mod utils;
 use gui::app::CashflowApp;
 
 fn main() -> eframe::Result<()> {
+    // --- Native Desktop Implementation ---
     #[cfg(not(target_arch = "wasm32"))]
     {
         let options = eframe::NativeOptions {
@@ -24,6 +30,7 @@ fn main() -> eframe::Result<()> {
         )
     }
 
+    // --- Web/WASM Implementation ---
     #[cfg(target_arch = "wasm32")]
     {
         use wasm_bindgen::JsCast;
