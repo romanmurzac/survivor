@@ -19,9 +19,7 @@ pub fn render(ui: &mut Ui, reports: &[Report]) {
         .y_axis_label("Balance")
         .allow_scroll(false)
         .show_background(false)
-        .y_axis_formatter(|grid_mark, _max_chars| {
-        format!("{:.0}", grid_mark.value)
-    })
+        .y_axis_formatter(|grid_mark, _max_chars| format!("{:.0}", grid_mark.value))
         .show(ui, |plot_ui| {
             plot_ui.bar_chart(chart);
         });

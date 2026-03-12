@@ -84,11 +84,7 @@ pub fn render(ui: &mut Ui, scenario: &mut Scenario) {
                             });
 
                         ui.label("%");
-                        ui.add(
-                            egui::DragValue::new(percent)
-                                .speed(1.0)
-                                .range(0.0..=100.0),
-                        );
+                        ui.add(egui::DragValue::new(percent).speed(1.0).range(0.0..=100.0));
                     }
                     Action::Increase(percent) => {
                         egui::ComboBox::from_id_salt(format!("action{}", index))
@@ -104,11 +100,7 @@ pub fn render(ui: &mut Ui, scenario: &mut Scenario) {
                             });
 
                         ui.label("%");
-                        ui.add(
-                            egui::DragValue::new(percent)
-                                .speed(1.0)
-                                .range(0.0..=500.0),
-                        );
+                        ui.add(egui::DragValue::new(percent).speed(1.0).range(0.0..=500.0));
                     }
                 }
 

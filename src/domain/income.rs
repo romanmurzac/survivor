@@ -21,7 +21,12 @@ pub struct Income {
 }
 
 impl Income {
-    pub fn new(name: impl Into<String>, amount: f64, frequency: IncomeType, category: IncomeCategory) -> Self {
+    pub fn new(
+        name: impl Into<String>,
+        amount: f64,
+        frequency: IncomeType,
+        category: IncomeCategory,
+    ) -> Self {
         Self {
             name: name.into(),
             amount,

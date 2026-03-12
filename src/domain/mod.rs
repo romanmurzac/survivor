@@ -1,3 +1,4 @@
+//! This module provides...
 pub mod expense;
 pub mod income;
 pub mod loan;

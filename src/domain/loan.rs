@@ -22,7 +22,7 @@ impl Loan {
         }
 
         let payment = self.principal + self.interest;
-        
+
         self.remaining -= self.principal;
 
         if self.remaining < 0.0 {
