@@ -1,12 +1,14 @@
 [package]
 name = "survivor"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 
 [dependencies]
+chrono = "0.4"
 eframe = "0.33.3"
 egui = "0.33.3"
 egui_plot = "0.34.1"
+js-sys = "0.3"
 wasm-bindgen = "0.2"
 wasm-bindgen-futures = "0.4"
 web-sys = { version = "0.3", features = [
@@ -16,6 +18,3 @@ web-sys = { version = "0.3", features = [
 "Document",
 "Window"
 ]}
-
-js-sys = "0.3"
-chrono = "0.4"

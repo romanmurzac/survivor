@@ -6,7 +6,7 @@
 //! the simulation engine.
 
 use chrono::Local;
-use egui::Ui;
+use egui::{Ui, RichText, Color32};
 
 use crate::gui::app::CashflowApp;
 use crate::gui::editors::{expenses_editor, incomes_editor, loans_editor, scenarios_editor};
@@ -55,11 +55,26 @@ pub fn render(ui: &mut Ui, app: &mut CashflowApp) {
 
     // Export Processing.
     ui.add_space(10.0);
-    ui.heading("Data Process");
+    ui.heading("Processing");
     if ui.button("Download CSV Report").clicked() {
         let csv_file = export_csv(&app.reports);
         let timestamp = Local::now().format("%Y-%m-%d_%H-%M-%S");
         let filename = format!("survivor_report_{}.csv", timestamp);
         download_csv(&filename, &csv_file);
+    }
+    ui.separator();
+
+    // Documentation section.
+    ui.add_space(10.0);
+    ui.heading("Documentation");
+    if ui.button(RichText::new("User Guide").color(Color32::RED)).clicked() {
+        let readme_url = "/survivor/instructions.html";
+
+        ui.ctx().output_mut(|o| {
+            o.commands.push(egui::OutputCommand::OpenUrl(egui::output::OpenUrl {
+                url: readme_url.to_string(),
+                new_tab: false,
+            }));
+        });
     }
 }

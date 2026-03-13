@@ -3,7 +3,7 @@
 [![Built with Rust](https://img.shields.io/badge/built%20with-rust-blue)](https://github.com/rust-lang/rust)
 [![Built with egui](https://img.shields.io/badge/built%20with-egui-blue)](https://github.com/emilk/egui)
 [![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE)\
-![Version](https://img.shields.io/badge/version-0.1.1-orange)
+![Version](https://img.shields.io/badge/version-0.1.2-orange)
 [![Build Status](https://github.com/romanmurzac/survivor/actions/workflows/deploy.yml/badge.svg)](https://github.com/romanmurzac/survivor/actions)
 
 
@@ -278,13 +278,19 @@ rustup target add wasm32-unknown-unknown
 Run the web server:
 
 ```
-trunk serve
+trunk serve --public-url /survivor/
 ```
 
 Open:
 
 ```
 http://127.0.0.1:8080
+```
+
+Create release version:
+
+```
+trunk build --release --public-url /survivor/
 ```
 
 ---
