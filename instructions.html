@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survivor User Guide</title>
+    <style>
+      :root {
+        --bg: #1b1b1b;
+        --panel: #242424;
+        --text: #d1d1d1;
+        --heading: #ffffff;
+        --accent: #4f92ff;
+        --border: #444;
+        --code-bg: #333;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        background-color: var(--bg);
+        color: var(--text);
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--heading);
+        margin-top: 1.5em;
+      }
+      h1 {
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 10px;
+        margin-top: 0;
+      }
+      h2 {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 5px;
+      }
+
+      hr {
+        border: 0;
+        border-top: 1px solid var(--border);
+        margin: 2em 0;
+      }
+
+      code {
+        background: var(--code-bg);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+      }
+
+      pre {
+        background: var(--panel);
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1em 0;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid var(--border);
+        text-align: left;
+      }
+
+      th {
+        background: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/survivor/" class="back-link">← Back to Survivor</a>
+
+    <h1>Survivor User Guide</h1>
+
+    <div style="background: #3e2723; padding: 15px; border-radius: 4px">
+      <strong>Disclaimer:</strong> This app is for educational and planning
+      purposes only. It does not provide financial advice.
+    </div>
+
+    <hr />
+
+    <p>
+      <strong>Survivor</strong> is a financial simulation tool that helps you
+      understand how long you can sustain your lifestyle based on your
+      <strong>savings, income, expenses, loans, and future scenarios</strong>.
+    </p>
+
+    <p>
+      The application simulates your financial situation month by month and
+      shows whether you stay financially stable, survive long-term, or go
+      bankrupt. It is designed to help you
+      <strong
+        >experiment with financial decisions before making them in real
+        life.</strong
+      >
+    </p>
+
+    <hr />
+
+        <h1>How to Use</h1>
+    <ol>
+      <li>Set starting savings</li>
+      <li>Set time horizon</li>
+      <li>Set target amount</li>
+      <li><i>Optionally:</i> Add scenarios</li>
+      <li>Add incomes</li>
+      <li>Add expenses</li>
+      <li>Add loans</li>
+      <li>Review the chart and report</li>
+      <li><i>Optionally:</i> Download the report</li>
+    </ol>
+
+    <hr>
+
+    <h1>What it Does</h1>
+    <p>
+      Survivor simulates a <strong>cashflow timeline</strong> and generates a
+      monthly financial report based on:<br />
+      * <strong>savings</strong> - initial available amount<br />
+      * <strong>horizon</strong> - number of months to simulate<br />
+      * <strong>target</strong> - amount at which financial freedom is
+      reached<br />
+      * <strong>scenarios</strong> - financial future scenarios<br />
+      * <strong>incomes</strong> - total income amount<br />
+      * <strong>expenses</strong> - total expenses amount<br />
+      * <strong>loans</strong> - existing loans
+    </p>
+
+    <p>Each month the engine calculates:</p>
+    <code
+      >Savings = (Previous Savings + Incomes - Expenses - Loans) *
+      Scenarios</code
+    >
+    <p>
+      The simulation continues until the defined <strong>time horizon</strong>.
+    </p>
+
+    <hr />
+
+    <h1>Key Features</h1>
+
+    <h2>Financial Simulation</h2>
+    <p>Simulate your financial future over months or years.</p>
+    <p>
+      You can adjust:<br />
+      * starting savings<br />
+      * financial horizon<br />
+      * target amount<br />
+      * financial scenarios<br />
+      * incomes<br />
+      * expenses<br />
+      * loans
+    </p>
+
+    <h2>Income Management</h2>
+    <p>
+      Income compute all your existing incomes.<br />Add multiple income
+      sources.
+    </p>
+    <p>
+      <h3>Attributes:</h3>
+      * name<br />
+      * amount<br />
+      * type<br />
+      * category
+    </p>
+
+    <p>
+      <h3>Types:</h3>
+      * <strong>Recurrent</strong> - monthly income<br />
+      * <strong>OneTime</strong> - income that happens once in a specific month
+    </p>
+
+    <p>
+      <h3>Categories:</h3>
+      * <strong>Active</strong> - earned from directly participating in work<br />
+      * <strong>Passive</strong> - earned with minimal daily effort
+    </p>
+
+    <p>
+      <h3>Examples:</h3>
+      * <strong>Recurrent + Passive</strong> - investments, dividends,
+      rentals<br />
+      * <strong>OneTime + Active</strong> - side project, consulting,
+      commissions<br />
+      * <strong>OneTime + Passive</strong> - intelectual property, patents, sell
+      property
+    </p>
+
+    <h2>Expense Management</h2>
+    <p>
+      Expense compute all your existing expenses.<br />Add multiple expense
+      sources.
+    </p>
+    <p>
+      <h3>Attributes:</h3>
+      * name<br />
+      * amount<br />
+      * type
+    </p>
+
+    <p>
+      <h3>Types:</h3>
+      * <strong>Fix</strong> - constant monthly expenses<br />
+      * <strong>Variable</strong> - flexible spending, aproximate to occur every
+      6 months<br />
+      * <strong>Unpredictable</strong> - occurs once in a specific month
+    </p>
+
+    <p>
+      <h3>Examples:</h3>
+      * <strong>Fix</strong> - rent, groceries, subscriptions<br />
+      * <strong>Variable</strong> - shopping, entertainment, vacation<br />
+      * <strong>Unpredictable</strong> - medical bills, repairs, emergencies
+    </p>
+
+    <h2>Loan Management</h2>
+    <p>Loan compute all your existing loans.<br />Add multiple loan sources.</p>
+    <p>
+      <h3>Attributes:</h3>
+      * name<br />
+      * remaining balance<br />
+      * monthly payment<br />
+      * interest
+    </p>
+
+    <p>
+      <h3>Examples:</h3>
+      * <strong>Mortgage</strong> - mortgage, 350.000, 1.100, 1.100<br />
+      * <strong>Leasing</strong> - leasing, 170.000, 550, 300<br />
+      * <strong>Student Loan</strong> - student, 60.000, 300, 100
+    </p>
+
+    <h2>Scenario Simulation</h2>
+    <p>
+      Scenarios simulate <strong>future financial events</strong>.<br />This
+      allows testing <strong>"what if" situations</strong>.<br />Add multiple
+      financial scenarios.
+    </p>
+
+    <p>
+      <h3>Attributes:</h3>
+      * start month<br />
+      * target<br />
+      * action
+    </p>
+
+    <p>
+      <h3>Targets:</h3>
+      * <strong>ActiveIncome</strong> - earned from directly participating in
+      work<br />
+      * <strong>PassiveIncome</strong> - earned with minimal daily effort<br />
+      * <strong>FixExpense</strong> - constant monthly expenses<br />
+      * <strong>VariableExpense</strong> - flexible spending, aproximate to
+      occur every 6 months<br />
+      * <strong>UnpredictableExpense</strong> - occurs once in a specific month
+    </p>
+
+    <p>
+      <h3>Actions:</h3>
+      * <strong>Loss</strong> - Reduce the scenario's target to zero starting
+      from specified start month<br />
+      * <strong>Increase</strong> - Increase the scenario's target with specific
+      percent starting from specified month<br />
+      * <strong>Cut</strong> - Decrease the scenario's target with specific
+      percent starting from specified month
+    </p>
+
+    <p>
+      <h3>Examples:</h3>
+      * <strong>Loss + ActiveIncome</strong> - initial 100, after 0<br />
+      * <strong>Increase + FixExpense (with 10%)</strong> - initial 100, after
+      110<br />
+      * <strong>Cut + VariableExpense (with 10%)</strong> - initial 100, after
+      90
+    </p>
+
+    <hr />
+
+    <h1>Visualization</h1>
+    
+    <h2>Status</h2>
+    <p>
+      At the end of the simulation the app calculates your
+      <strong>financial status</strong>.
+    </p>
+
+    <h3>Attributes:</h3>
+    <p>
+      <strong>Survivor</strong> - You reached financial freedom within the
+      selected time horizon.<br />
+      <strong>InTheGame</strong> - Your finances remain positive throughout the
+      simulation.<br />
+      <strong>StillAlive</strong> - Your savings are declining, but you remain
+      financially solvent.<br />
+      <strong>Bankrupt</strong> - Your savings become negative during the
+      simulation.
+    </p>
+
+    <h3>Examples:</h3>
+    <pre>In 20 months you become SURVIVOR.</pre>
+    or
+    <pre>You are InTheGame.</pre>
+    or
+    <pre>You are StillAlive.</pre>
+    or
+    <pre>In 6 months you become BANKRUPT.</pre>
+
+    <h2>Cashflow Chart</h2>
+    <p>A bar chart that shows monthly savings evolution.</p>
+    <h3>Attributes:</h3>
+    <p>Axis: <br>
+    * X axis → Month <br>
+    * Y axis → Savings</p>
+
+    <h2>Financial Report</h2>
+    <p>Report preview in table format.</p>
+    <h3>Attributes:</h3>
+    <p>Table that contains: <br>
+    * Month<br>
+    * Savings<br>
+    * Incomes<br>
+    * Expenses<br>
+    * Loans</p>
+
+
+    <hr />
+
+    <h1>Processing</h1>
+
+    <h2>CSV Export</h2>
+    <p>You can export the report to <strong>CSV</strong>.</p>
+    <pre>
+Month,Savings,Incomes,Expenses,Loans
+1,4500,3000,2000,500
+2,5000,3000,2000,500</pre>
+
+<p>The filename includes a timestamp:</p>
+
+<pre>survivor_report_2026-03-11_15-42-30.csv</pre>
+    <hr />
+
+    <footer
+      style="
+        margin-top: 50px;
+        font-size: 0.8em;
+        opacity: 0.6;
+        text-align: center;
+      "
+    >
+      Survivor v0.1.2 &copy; 2026
+    </footer>
+  </body>
+</html>
