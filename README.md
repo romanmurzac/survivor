@@ -1,4 +1,4 @@
-# Survivor
+# [Survivor](https://romanmurzac.github.io/survivor/instructions.html)
 
 [![Built with Rust](https://img.shields.io/badge/built%20with-rust-blue)](https://github.com/rust-lang/rust)
 [![Built with egui](https://img.shields.io/badge/built%20with-egui-blue)](https://github.com/emilk/egui)
@@ -6,6 +6,7 @@
 ![Version](https://img.shields.io/badge/version-0.1.2-orange)
 [![Build Status](https://github.com/romanmurzac/survivor/actions/workflows/deploy.yml/badge.svg)](https://github.com/romanmurzac/survivor/actions)
 
+[survivor](https://romanmurzac.github.io/survivor/instructions.html)
 
 **Survivor** is a financial simulation tool that helps you understand how long you can sustain your lifestyle based on your **savings, income, expenses, loans, and future scenarios**.
 
