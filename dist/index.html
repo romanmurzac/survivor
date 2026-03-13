@@ -21,8 +21,8 @@
 
     
 <script type="module">
-import init, * as bindings from '/survivor/survivor-c02798e47c378e4b.js';
-const wasm = await init({ module_or_path: '/survivor/survivor-c02798e47c378e4b_bg.wasm' });
+import init, * as bindings from '/survivor/survivor-1a1fa4f176c7a144.js';
+const wasm = await init({ module_or_path: '/survivor/survivor-1a1fa4f176c7a144_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -31,7 +31,8 @@ window.wasmBindings = bindings;
 dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
 </script>
-  <link rel="modulepreload" href="/survivor/survivor-c02798e47c378e4b.js" crossorigin="anonymous" integrity="sha384-emcFwEYEdLV+o54Gm2vtg6djuw2aLN2BZK6AzGhYla3s12ov+BeynfDz0U6v7b4g"><link rel="preload" href="/survivor/survivor-c02798e47c378e4b_bg.wasm" crossorigin="anonymous" integrity="sha384-tCNVSmLySwf4BCKEp/AiaMyUUBKL5VVjnqIpWIcJ0Goj9Toi2ZvvBEeoTPYOLeNj" as="fetch" type="application/wasm"></head>
+    
+  <link rel="modulepreload" href="/survivor/survivor-1a1fa4f176c7a144.js" crossorigin="anonymous" integrity="sha384-emcFwEYEdLV+o54Gm2vtg6djuw2aLN2BZK6AzGhYla3s12ov+BeynfDz0U6v7b4g"><link rel="preload" href="/survivor/survivor-1a1fa4f176c7a144_bg.wasm" crossorigin="anonymous" integrity="sha384-I7WWwzBaQ9sEmNIRksW1sbGvFbjmHtuJdTg06sG4NRMBVLM2WbQRNvLOaMIbaA7B" as="fetch" type="application/wasm"></head>
 
   <body>
     <canvas id="the_canvas_id"></canvas>
